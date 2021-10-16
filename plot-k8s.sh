@@ -28,11 +28,11 @@ for name in $namespaces;do
 		mkdir -p "$DEFAULT_OUTPUT/$name"	
 	fi
 
-	#generate dot diagram and cd into its direvtory
+	#generate dot diagram and cd into its directory
 	$K8SD -d $DEFAULT_OUTPUT/$name/diagram -n $name
 	cd "$DEFAULT_OUTPUT/$name/diagram"
 
-	#convert dor file into png
+	#convert dot file into png
 	$DOT -q -Tpng k8s.dot > $name.png
 
 	#move png and delete temp namespace directories
